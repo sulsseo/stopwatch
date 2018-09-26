@@ -29,6 +29,8 @@
 
 
 <script>
+    running = false;
+
     var h1 = document.getElementsByTagName('h1')[0],
         start = document.getElementById('start'),
         stop = document.getElementById('stop'),
@@ -56,26 +58,34 @@
         t = setTimeout(add, 1000);
     }
 
-    // timer();
-
     // document.addEventListener('keyup', function (e) {
     //    console.log('a');
     // });
 
     /* Start button */
-    start.onclick = timer;
+    start.onclick = function () {
+        if (!running) {
+            timer();
+            running = true;
+        }
+    };
 
     /* Stop button */
     stop.onclick = function () {
-        clearTimeout(t);
+        if (running) {
+            clearTimeout(t);
+            running = false;
+        }
     };
 
     /* Clear button */
     clear.onclick = function () {
-        h1.textContent = "00:00:00";
-        seconds = 0;
-        minutes = 0;
-        hours = 0;
+        if (!running) {
+            h1.textContent = "00:00:00";
+            seconds = 0;
+            minutes = 0;
+            hours = 0;
+        }
     }
 </script>
 </body>
