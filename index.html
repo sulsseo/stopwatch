@@ -30,8 +30,9 @@
 
 <script>
     running = false;
+    clicks = 0;
 
-    var h1 = document.getElementsByTagName('h1')[0],
+    let h1 = document.getElementsByTagName('h1')[0],
         start = document.getElementById('start'),
         stop = document.getElementById('stop'),
         clear = document.getElementById('clear'),
@@ -49,7 +50,9 @@
             }
         }
 
-        h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+        h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00")
+            + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00")
+            + ":" + (seconds > 9 ? seconds : "0" + seconds);
 
         timer();
     }
@@ -58,28 +61,21 @@
         t = setTimeout(add, 1000);
     }
 
-    // document.addEventListener('keyup', function (e) {
-    //    console.log('a');
-    // });
-
-    /* Start button */
-    start.onclick = function () {
+    function startTimer() {
         if (!running) {
             timer();
             running = true;
         }
-    };
+    }
 
-    /* Stop button */
-    stop.onclick = function () {
+    function stopTimer() {
         if (running) {
             clearTimeout(t);
             running = false;
         }
-    };
+    }
 
-    /* Clear button */
-    clear.onclick = function () {
+    function clearTimer() {
         if (!running) {
             h1.textContent = "00:00:00";
             seconds = 0;
@@ -87,6 +83,35 @@
             hours = 0;
         }
     }
+
+    window.addEventListener('keyup', function (e) {
+        if (e.code === 'Space') {
+            switch (clicks) {
+                case 0:
+                    startTimer();
+                    clicks++;
+                    break;
+                case 1:
+                    stopTimer();
+                    clicks++;
+                    break;
+                case 2:
+                    clearTimer();
+                    clicks=0;
+                    break;
+            }
+        }
+    });
+
+    /* Start button */
+    start.onclick = startTimer;
+
+    /* Stop button */
+    stop.onclick = stopTimer;
+
+    /* Clear button */
+    clear.onclick = clearTimer;
+
 </script>
 </body>
 </html>
