@@ -1,0 +1,41 @@
+body {
+    position: relative;
+    text-align: center;
+}
+
+.stopwatch {
+    /*color: white;*/
+    font-family: Monaco, Helvetica, serif;
+    font-size: 10em;
+}
+
+.button-panel {
+    /*visibility: hidden;*/
+}
+
+.stopwatch-container {
+    background-color: black;
+}
+
+.sponsors {
+    display: list-item;
+}
+
+.banner {
+    opacity: 0.6;
+}
+
+/* Banners */
+
+.vybezek-banner {
+    max-width: 120%;
+}
+
+
+.debata-banner {
+    max-width: 40%;
+}
+
+.vandej-banner {
+    max-width: 30%;
+}
