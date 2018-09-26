@@ -9,11 +9,11 @@
 
 <img class="banner debata-banner" src="img/debata.jpg">
 
-<!--<div class="stopwatch-container">-->
+<div class="stopwatch-container">
     <h1 class="stopwatch">
-        <time>00:00:00</time>
+        <time>00:00</time>
     </h1>
-<!--</div>-->
+</div>
 
 <div class="sponsors">
     <img class="banner vandej-banner" src="img/vandej.png">
@@ -50,9 +50,10 @@
             }
         }
 
-        h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00")
-            + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00")
-            + ":" + (seconds > 9 ? seconds : "0" + seconds);
+        h1.textContent =
+            // (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +
+            (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" +
+            (seconds > 9 ? seconds : "0" + seconds);
 
         timer();
     }
@@ -77,14 +78,14 @@
 
     function clearTimer() {
         if (!running) {
-            h1.textContent = "00:00:00";
+            h1.textContent ="00:00";
             seconds = 0;
             minutes = 0;
             hours = 0;
         }
     }
 
-    window.addEventListener('keyup', function (e) {
+    function handler(e) {
         if (e.code === 'Space') {
             switch (clicks) {
                 case 0:
@@ -101,7 +102,11 @@
                     break;
             }
         }
-    });
+    }
+
+    window.addEventListener('keyup', handler);
+    window.addEventListener('touchend', handler);
+
 
     /* Start button */
     start.onclick = startTimer;

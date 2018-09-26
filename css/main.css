@@ -8,7 +8,6 @@ h1 {
 }
 
 .stopwatch {
-    /*color: white;*/
     font-family: Monaco, Helvetica, serif;
     font-size: 15vw;
 }
@@ -18,7 +17,7 @@ h1 {
 }
 
 .stopwatch-container {
-    background-color: black;
+
 }
 
 .sponsors {
