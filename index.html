@@ -7,7 +7,12 @@
 </head>
 <body>
 
-<img class="banner debata-banner" src="img/debata.jpg">
+<ul class="sponsors">
+    <li><img class="banner" src="img/01vandej.png"></li>
+    <li><img class="banner" src="img/02vybezek.png"></li>
+    <li><img class="banner" src="img/03ujep.png"></li>
+    <li><img class="banner" src="img/04prosteq.png"></li>
+</ul>
 
 <div class="stopwatch-container">
     <h1 class="stopwatch">
@@ -15,11 +20,7 @@
     </h1>
 </div>
 
-<div class="sponsors">
-    <img class="banner vandej-banner" src="img/vandej.png">
-    <img class="banner vybezek-banner" src="img/vybezek.png">
-</div>
-
+<!--<img class="banner debata-banner" src="img/debata.jpg">-->
 
 <div class="button-panel">
     <button id="start">start</button>
@@ -48,6 +49,10 @@
                 minutes = 0;
                 hours++;
             }
+        }
+
+        if (minutes === 2 && seconds === 1) {
+            h1.classList.add("overtime");
         }
 
         h1.textContent =
@@ -79,6 +84,7 @@
     function clearTimer() {
         if (!running) {
             h1.textContent ="00:00";
+            h1.classList.remove("overtime");
             seconds = 0;
             minutes = 0;
             hours = 0;

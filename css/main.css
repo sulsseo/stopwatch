@@ -1,3 +1,8 @@
+@font-face {
+    font-family: MyMonaco;
+    src: url("../fonts/Monaco-Linux.ttf");
+}
+
 body {
     position: relative;
     text-align: center;
@@ -7,38 +12,41 @@ h1 {
     margin: 0 0 0 0;
 }
 
-.stopwatch {
-    font-family: Monaco, Helvetica, serif;
-    font-size: 15vw;
-}
-
 .button-panel {
     visibility: hidden;
 }
 
-.stopwatch-container {
-
+.stopwatch {
+    font-family: MyMonaco, sans-serif;
+    font-size: 20vw;
 }
 
+.overtime {
+    color: red;
+}
+
+.stopwatch-container {
+    padding: 5vw 0 0 0;
+}
+
+/* Banners */
 .sponsors {
-    display: list-item;
+    width: 95%;
+    display: table;
+    table-layout: fixed;
+}
+
+ul li {
+    display: inline-block;
 }
 
 .banner {
     opacity: 0.6;
+    max-width: 21vw;
+    display: block;
+    filter: grayscale(100%);
 }
-
-/* Banners */
-
-.vybezek-banner {
-    max-width: 120%;
-}
-
 
 .debata-banner {
     max-width: 40%;
-}
-
-.vandej-banner {
-    max-width: 30%;
 }
