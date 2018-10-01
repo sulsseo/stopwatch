@@ -3,6 +3,16 @@
     src: url("../fonts/Monaco-Linux.ttf");
 }
 
+@font-face {
+    font-family: MyDigital;
+    src: url("../fonts/digital-7.ttf");
+}
+
+@font-face {
+    font-family: MyDigitalMono;
+    src: url("../fonts/digital-7-mono.ttf");
+}
+
 body {
     position: relative;
     text-align: center;
@@ -17,7 +27,7 @@ h1 {
 }
 
 .stopwatch {
-    font-family: 'MyMonaco', sans-serif;
+    font-family: 'MyMonaco', 'MyDigitalMono', 'MyDigital', sans-serif;
     font-size: 20vw;
 }
 
@@ -32,6 +42,7 @@ h1 {
 /* Banners */
 .sponsors {
     width: 95%;
+    padding: 2vw 0 0 0;
     display: table;
     table-layout: fixed;
 }
